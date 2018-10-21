@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System.Threading.Tasks;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour {
 
@@ -14,7 +16,7 @@ public class NewBehaviourScript : MonoBehaviour {
 		
 	}
 
-	static async System.Threading.Tasks.Task<int> MysteryMethod(System.Collections.Generic.IEnumerable<UnityEngine.UI.Button> buttons)
+	static async Task<int> MysteryMethod(IEnumerable<Button> buttons)
 	{
 		var taskCompletionSource = new System.Threading.Tasks.TaskCompletionSource<int>();
 
