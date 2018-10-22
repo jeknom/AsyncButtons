@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &237175657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 2092646490}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &361264593 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
@@ -124,6 +130,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2092646490}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &456610798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 1085809636}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &510279516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 1085809636}
+  m_Script: {fileID: 11500000, guid: 0a544af2982c249159e86bd29c8a648d, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +219,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791321950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 1428227261}
+  m_Script: {fileID: 11500000, guid: 0a544af2982c249159e86bd29c8a648d, type: 3}
 --- !u!1001 &814775849
 Prefab:
   m_ObjectHideFlags: 0
@@ -307,20 +331,25 @@ Prefab:
       propertyPath: m_Text
       value: 'Player 4:'
       objectReference: {fileID: 0}
+    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+        type: 2}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 850033478}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd0efb0c82b2d4faa31f4fba565953, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &850033478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 814775849}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &944588251 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
     type: 2}
   m_PrefabInternal: {fileID: 814775849}
---- !u!114 &944588252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114693994090052660, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-    type: 2}
-  m_PrefabInternal: {fileID: 814775849}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1085809636
 Prefab:
   m_ObjectHideFlags: 0
@@ -427,9 +456,20 @@ Prefab:
       propertyPath: m_Text
       value: 'Player 3:'
       objectReference: {fileID: 0}
+    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+        type: 2}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 456610798}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd0efb0c82b2d4faa31f4fba565953, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1098671392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 2092646490}
+  m_Script: {fileID: 11500000, guid: 0a544af2982c249159e86bd29c8a648d, type: 3}
 --- !u!224 &1165148397 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
@@ -609,20 +649,30 @@ Prefab:
       propertyPath: m_Text
       value: 'Player 2:'
       objectReference: {fileID: 0}
+    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+        type: 2}
+      propertyPath: PlayerButton
+      value: 
+      objectReference: {fileID: 1165148398}
+    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+        type: 2}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 2147157899}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd0efb0c82b2d4faa31f4fba565953, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1474358336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 814775849}
+  m_Script: {fileID: 11500000, guid: 0a544af2982c249159e86bd29c8a648d, type: 3}
 --- !u!224 &1689389401 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
     type: 2}
   m_PrefabInternal: {fileID: 1085809636}
---- !u!114 &1689389402 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114693994090052660, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-    type: 2}
-  m_PrefabInternal: {fileID: 1085809636}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1951164401
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,11 +782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edacc2914d6c6f4caf0f276fbc4ce9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons:
-  - {fileID: 361264594}
-  - {fileID: 1165148398}
-  - {fileID: 1689389402}
-  - {fileID: 944588252}
+  Players:
+  - {fileID: 1098671392}
+  - {fileID: 791321950}
+  - {fileID: 510279516}
+  - {fileID: 1474358336}
 --- !u!1001 &2092646490
 Prefab:
   m_ObjectHideFlags: 0
@@ -853,6 +903,22 @@ Prefab:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+        type: 2}
+      propertyPath: PlayerButton
+      value: 
+      objectReference: {fileID: 361264594}
+    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+        type: 2}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 237175657}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd0efb0c82b2d4faa31f4fba565953, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &2147157899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    type: 2}
+  m_PrefabInternal: {fileID: 1428227261}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
