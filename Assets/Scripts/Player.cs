@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 	
 	public Text ScoreText;
-	private int _score = 0;
+	private int _score;
 	private bool _isActive = true;
 
 	public Button PlayerButton { get; set; }
@@ -18,8 +18,8 @@ public class Player : MonoBehaviour {
 		}
 		set
 		{
-			ScoreText.text = _score.ToString();
 			_score = value;
+			ScoreText.text = _score.ToString();
 		}
 	}
 	public bool IsActive 
@@ -47,5 +47,6 @@ public class Player : MonoBehaviour {
 	private void Start ()
 	{
 		this.PlayerButton = GetComponent<Button>();
+		Score = 0;
 	}
 }

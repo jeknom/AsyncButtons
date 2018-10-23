@@ -15,14 +15,30 @@ public class Main : MonoBehaviour
 
 		while (true)
 		{
+			var roundTime = TimeSpan.FromSeconds(random.Next(2, 3));
+			StartCoroutine(ButtonFunctions.SetGreenButtonsWithDelay(Players, roundTime));
 			stopwatch.Start();
-			var buttonsToggled = ParallelFunctions.IsToggled(Players, 3);
-			var tapper = await ParallelFunctions.GetButtonTap(Players);
 			
-			if (buttonsToggled)
-			Players[tapper].Score += 1;
+			var tapper = await ButtonFunctions.GetButtonTap(Players);
+			stopwatch.Stop();
+
+			if (stopwatch.Elapsed.TotalSeconds >= roundTime.TotalSeconds)
+			{
+				Players[tapper].Score ++;
+				Debug.Log(Players[tapper].Score);
+			}
+			else
+			{
+				Players[tapper].IsActive = false;
+				Debug.Log("Tap too soon!");
+			}
+
+			stopwatch.Reset();
+			foreach (var player in Players)
+				if (player.IsActive)
+					player.PlayerButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+			Debug.Log(stopwatch.Elapsed.TotalSeconds);
 		}	
 	}
-
-	
 }

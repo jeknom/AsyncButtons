@@ -6,15 +6,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ParallelFunctions : MonoBehaviour {
+public class ButtonFunctions : MonoBehaviour {
 
 	public static async Task<int> GetButtonTap(IEnumerable<Player> players)
 	{
 		var taskCompletionSource = new TaskCompletionSource<int>();
 
 		foreach (var pair in Enumerable.Select(players, (player, index) => new {player, index}))
-			pair.player.PlayerButton.onClick.AddListener(() =>
-				taskCompletionSource.SetResult(pair.index));
+			if (pair.player.IsActive)
+				pair.player.PlayerButton.onClick.AddListener(() =>
+					taskCompletionSource.SetResult(pair.index));
 		
 		var result = await taskCompletionSource.Task;
 
@@ -25,12 +26,12 @@ public class ParallelFunctions : MonoBehaviour {
 		return result;
 	}
 
-	public static async Task<bool> IsToggled(Player[] players, int delay)
+	public static IEnumerator SetGreenButtonsWithDelay(Player[] players, TimeSpan delay)
 	{
-		foreach (var player in players)
-			player.PlayerButton.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+		yield return new WaitForSeconds((float)delay.TotalSeconds);
 
-		await Task.Delay(TimeSpan.FromSeconds(delay));
-		return true;
+		foreach (var player in players)
+			if (player.IsActive)
+				player.PlayerButton.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
 	}
 }
