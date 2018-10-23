@@ -1,15 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 	
 	public Text ScoreText;
-	private int _score;
-	private bool _isActive = true;
+	private int _score = 0;
+	private bool _buttonIsActive = false;
 
 	public Button PlayerButton { get; set; }
+	public bool ButtonIsActive 
+	{ 
+		get
+		{
+			return _buttonIsActive;
+		} 
+		set
+		{
+			_buttonIsActive = value;
+
+			if (value)
+			{
+				PlayerButton.GetComponent<Image>().color = new Color32(0,255,0,255);
+			}
+			else
+			{
+				PlayerButton.GetComponent<Image>().color = new Color32(255,255,255,255);
+			}
+		}
+	}
+
 	public int Score 
 	{ 
 		get
@@ -22,31 +45,9 @@ public class Player : MonoBehaviour {
 			ScoreText.text = _score.ToString();
 		}
 	}
-	public bool IsActive 
-	{
-		get
-		{
-			return this._isActive;
-		}
-		set
-		{
-			// Changes the button colour depending on whether it's active or not.
-			if (value)
-			{
-				PlayerButton.GetComponent<Image>().color = new Color32(0, 255, 0 , 255);
-			}
-			else
-			{
-				PlayerButton.GetComponent<Image>().color = new Color32(120, 120, 120 , 255);
-			}
-
-			this._isActive = value;
-		}
-	}
 
 	private void Start ()
 	{
 		this.PlayerButton = GetComponent<Button>();
-		Score = 0;
 	}
 }

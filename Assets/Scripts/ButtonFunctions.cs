@@ -7,13 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour {
-
-	public static async Task<int> GetButtonTap(IEnumerable<Player> players)
+	public static async Task<int> GetTap(IEnumerable<Player> players)
 	{
 		var taskCompletionSource = new TaskCompletionSource<int>();
 
 		foreach (var pair in Enumerable.Select(players, (player, index) => new {player, index}))
-			if (pair.player.IsActive)
 				pair.player.PlayerButton.onClick.AddListener(() =>
 					taskCompletionSource.SetResult(pair.index));
 		
@@ -26,12 +24,11 @@ public class ButtonFunctions : MonoBehaviour {
 		return result;
 	}
 
-	public static IEnumerator SetGreenButtonsWithDelay(Player[] players, TimeSpan delay)
+	public static IEnumerator SetActiveAfterDelay(Player[] players, TimeSpan delay)
 	{
-		yield return new WaitForSeconds((float)delay.TotalSeconds);
+		yield return new WaitForSeconds((int)delay.TotalSeconds);
 
 		foreach (var player in players)
-			if (player.IsActive)
-				player.PlayerButton.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+			player.ButtonIsActive = true;
 	}
 }

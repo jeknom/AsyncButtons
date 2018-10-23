@@ -7,38 +7,29 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour 
 {
 	public Player[] Players;
+	private System.Random random = new System.Random();
 	
 	async void Start () 
 	{
-		var stopwatch = new System.Diagnostics.Stopwatch();
-		var random = new System.Random();
-
-		while (true)
+		while(true)
 		{
-			var roundTime = TimeSpan.FromSeconds(random.Next(2, 3));
-			StartCoroutine(ButtonFunctions.SetGreenButtonsWithDelay(Players, roundTime));
-			stopwatch.Start();
-			
-			var tapper = await ButtonFunctions.GetButtonTap(Players);
-			stopwatch.Stop();
+			StartCoroutine(ButtonFunctions.SetActiveAfterDelay(Players, TimeSpan.FromSeconds(random.Next(3, 6))));
+			var tapper = await ButtonFunctions.GetTap(Players);
 
-			if (stopwatch.Elapsed.TotalSeconds >= roundTime.TotalSeconds)
-			{
+			if (Players[tapper].ButtonIsActive)
 				Players[tapper].Score ++;
-				Debug.Log(Players[tapper].Score);
-			}
 			else
 			{
-				Players[tapper].IsActive = false;
-				Debug.Log("Tap too soon!");
+				Players[tapper].Score --;
+
+				foreach(var player in Players)
+					if (Array.IndexOf(Players, player) != tapper)
+						player.Score++;
 			}
 
-			stopwatch.Reset();
+			StopAllCoroutines();
 			foreach (var player in Players)
-				if (player.IsActive)
-					player.PlayerButton.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-
-			Debug.Log(stopwatch.Elapsed.TotalSeconds);
-		}	
+				player.ButtonIsActive = false;
+		}
 	}
 }

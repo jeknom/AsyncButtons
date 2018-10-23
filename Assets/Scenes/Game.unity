@@ -113,23 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &237175657 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-    type: 2}
-  m_PrefabInternal: {fileID: 2092646490}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &361264593 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
     type: 2}
   m_PrefabInternal: {fileID: 2092646490}
---- !u!114 &361264594 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114693994090052660, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-    type: 2}
-  m_PrefabInternal: {fileID: 2092646490}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &456610798 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
@@ -175,7 +163,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.26664296, g: 0.5283019, b: 0.41685456, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -275,12 +263,12 @@ Prefab:
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 300
+      value: 300.1
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
@@ -329,7 +317,7 @@ Prefab:
     - target: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_Text
-      value: 'Player 4:'
+      value: Player 4
       objectReference: {fileID: 0}
     - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
@@ -400,12 +388,12 @@ Prefab:
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: 100.1
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
@@ -454,7 +442,7 @@ Prefab:
     - target: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_Text
-      value: 'Player 3:'
+      value: Player 3
       objectReference: {fileID: 0}
     - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
@@ -475,12 +463,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
     type: 2}
   m_PrefabInternal: {fileID: 1428227261}
---- !u!114 &1165148398 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114693994090052660, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-    type: 2}
-  m_PrefabInternal: {fileID: 1428227261}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1225968318
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,12 +575,12 @@ Prefab:
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -100
+      value: -99.8
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
@@ -647,18 +629,8 @@ Prefab:
     - target: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_Text
-      value: 'Player 2:'
+      value: Player 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-        type: 2}
-      propertyPath: PlayerButton
-      value: 
-      objectReference: {fileID: 1165148398}
-    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-        type: 2}
-      propertyPath: ScoreText
-      value: 
-      objectReference: {fileID: 2147157899}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd0efb0c82b2d4faa31f4fba565953, type: 2}
   m_IsPrefabAsset: 0
@@ -719,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -837,12 +809,12 @@ Prefab:
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -300
+      value: -299.8
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 224976653048375948, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
@@ -888,37 +860,11 @@ Prefab:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    - target: {fileID: 114376095629372850, guid: 52fd0efb0c82b2d4faa31f4fba565953,
+    - target: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
         type: 2}
-      propertyPath: m_Color.g
-      value: 1
+      propertyPath: m_Text
+      value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114376095629372850, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114376095629372850, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-        type: 2}
-      propertyPath: PlayerButton
-      value: 
-      objectReference: {fileID: 361264594}
-    - target: {fileID: 114988880392153724, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-        type: 2}
-      propertyPath: ScoreText
-      value: 
-      objectReference: {fileID: 237175657}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd0efb0c82b2d4faa31f4fba565953, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &2147157899 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114098441365626770, guid: 52fd0efb0c82b2d4faa31f4fba565953,
-    type: 2}
-  m_PrefabInternal: {fileID: 1428227261}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
