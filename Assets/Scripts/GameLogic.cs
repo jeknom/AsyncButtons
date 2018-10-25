@@ -7,25 +7,37 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public static class Players
+{
+	public static int[] Score = new int[4];
+}
+
 public class GameLogic : MonoBehaviour 
 {
 	public Button[] Buttons;
 	public Text[] Texts;
 
+	private System.Random random = new System.Random();
+
 	async void Start () 
 	{
-		foreach (var text in Texts)
-			text.text = Players.Scores[Array.IndexOf(Texts, text)].ToString();
+		for (var i = 0; i < Texts.Length; i++)
+			Texts[i].text = Players.Score[i].ToString();
 
-		var completedTask = await Task.WhenAny(AllowedTap(Buttons, TimeSpan.FromSeconds(2)), UnallowedTap(Buttons));
+		// Delay to prevent round from starting immediately after the last round was completed.
+		await Task.Delay(TimeSpan.FromSeconds(0.1));
+
+		var roundTime = TimeSpan.FromSeconds(random.Next(2, 5));
+		await Task.WhenAny(TapAfterDelay(Buttons, roundTime), TapTooEarly(Buttons));
+		
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
-	static async Task AllowedTap(IEnumerable<Button> buttons, TimeSpan delay)
+	static async Task TapAfterDelay(IEnumerable<Button> buttons, TimeSpan delay)
 	{
-		var taskCompletionSource = new TaskCompletionSource<int>();
-
 		await Task.Delay(delay);
+
+		var taskCompletionSource = new TaskCompletionSource<int>();
 		foreach (var pair in Enumerable.Select(buttons, (button, index) => new {button, index}))
 		{
 			pair.button.onClick.RemoveAllListeners();
@@ -36,10 +48,10 @@ public class GameLogic : MonoBehaviour
 			button.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
 
 		var result = await taskCompletionSource.Task;
-		Players.Scores[result] ++;
+		Players.Score[result]++;
 	}
 
-	static async Task UnallowedTap(IEnumerable<Button> buttons)
+	static async Task TapTooEarly(IEnumerable<Button> buttons)
 	{
 		var taskCompletionSource = new TaskCompletionSource<int>();
 
@@ -48,16 +60,9 @@ public class GameLogic : MonoBehaviour
 
 		var result = await taskCompletionSource.Task;
 
-		Players.Scores[result]--;
-		for (var i = 0; i < Players.Scores.Length; i++)
-		{
-			if (Players.Scores[i] != result)
-				Players.Scores[i]++;
-		}
+		Players.Score[result] --;
+		for (var i = 0; i < Players.Score.Length; i++)
+			if (Array.IndexOf(Players.Score, Players.Score[i]) != result)
+				Players.Score[i] ++;
 	}
-}
-
-public static class Players
-{
-	public static int[] Scores = new int[4];
 }
