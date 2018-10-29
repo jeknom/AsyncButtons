@@ -24,45 +24,45 @@ public class GameLogic : MonoBehaviour
 		for (var i = 0; i < Texts.Length; i++)
 			Texts[i].text = Players.Score[i].ToString();
 
-		// Delay to prevent round from starting immediately after the last round was completed.
-		await Task.Delay(TimeSpan.FromSeconds(0.1));
+		var prohibitedTap = GetTap(Buttons);
+		var allowedTap = ToggleButtonsAfterDelay(Buttons, TimeSpan.FromSeconds(3));
 
-		var roundTime = TimeSpan.FromSeconds(random.Next(2, 5));
-		await Task.WhenAny(TapAfterDelay(Buttons, roundTime), TapTooEarly(Buttons));
-		
+		var completedTask = await Task.WhenAny(prohibitedTap, allowedTap);
+		var playerIndex = completedTask.Result;
+
+		if (completedTask == prohibitedTap)
+		{
+			Players.Score[playerIndex]--;
+			for (var i = 0; i < Players.Score.Length; i++)
+				if (Array.IndexOf(Players.Score, Players.Score[i]) != playerIndex)
+					Players.Score[i]++;
+		}
+		else if (completedTask == allowedTap)
+			Players.Score[playerIndex]++;
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
-	static async Task TapAfterDelay(IEnumerable<Button> buttons, TimeSpan delay)
+	static async Task<int> GetTap(IEnumerable<Button> buttons)
 	{
-		await Task.Delay(delay);
-
 		var taskCompletionSource = new TaskCompletionSource<int>();
+
 		foreach (var pair in Enumerable.Select(buttons, (button, index) => new {button, index}))
-		{
-			pair.button.onClick.RemoveAllListeners();
 			pair.button.onClick.AddListener(() => taskCompletionSource.SetResult(pair.index));
-		}
 
-		foreach (var button in buttons)
-			button.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
-
-		var result = await taskCompletionSource.Task;
-		Players.Score[result]++;
+		return await taskCompletionSource.Task;
 	}
 
-	static async Task TapTooEarly(IEnumerable<Button> buttons)
+	static async Task<int> ToggleButtonsAfterDelay(Button[] buttons, TimeSpan delay)
 	{
-		var taskCompletionSource = new TaskCompletionSource<int>();
-
-		foreach (var pair in Enumerable.Select(buttons, (button, index) => new {button, index}))
-			pair.button.onClick.AddListener(() => taskCompletionSource.SetResult(pair.index));
-
-		var result = await taskCompletionSource.Task;
-
-		Players.Score[result] --;
-		for (var i = 0; i < Players.Score.Length; i++)
-			if (Array.IndexOf(Players.Score, Players.Score[i]) != result)
-				Players.Score[i] ++;
+		await Task.Delay(delay);
+		
+		foreach (var button in buttons)
+		{
+			button.onClick.RemoveAllListeners();
+			button.GetComponent<Image>().color = new Color(0, 255, 0, 255);
+		}
+		
+		return await GetTap(buttons);
 	}
 }
